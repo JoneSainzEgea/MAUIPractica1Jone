@@ -14,18 +14,27 @@
 
     <ScrollView>
         <VerticalStackLayout
-                Padding="30,0"
-                Spacing="25">
-            <Image
-                Source="sun_moon.png"
-                HeightRequest="100"
-                Aspect="AspectFit"
-                SemanticProperties.Description="sun and moon cycle" />
+            Padding="30,0"
+            Spacing="10">
 
-            <Label
-                Text="TicTacToe"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+            <!-- Título -->
+            <HorizontalStackLayout
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Spacing="10">
+                <Image
+                    Source="sun_moon.png"
+                    HeightRequest="100"
+                    Aspect="AspectFit"
+                    SemanticProperties.Description="sun and moon cycle" />
+                <Label
+                    VerticalOptions="Center"
+                    Text="TicTacToe"
+                    Style="{StaticResource Headline}"
+                    SemanticProperties.HeadingLevel="Level1" />
+            </HorizontalStackLayout>
+
+            <!-- Turno y puntuación -->
             <Border
                 BackgroundColor="{StaticResource PanelBackground}"
                 Stroke="Gray"
@@ -39,7 +48,6 @@
                     <RoundRectangle CornerRadius="12"/>
                 </Border.StrokeShape>
 
-                <!-- tablero -->
                 <Grid
                     RowSpacing="6"
                     ColumnSpacing="6"
@@ -54,7 +62,7 @@
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="100"/>
                     </Grid.ColumnDefinitions>
-                    <!-- Row 0 -->
+                    <!-- Row 0, Turno -->
                     <Image
                         Source="sunshine.png"
                         HeightRequest="50"
@@ -72,23 +80,31 @@
                         HeightRequest="50"
                         Aspect="AspectFit"
                         SemanticProperties.Description="Moon" />
-                    <!-- Row 1 -->
+                    <!-- Row 1, Puntuación -->
                     <BoxView
-            Grid.Row="1"
-            Color="{StaticResource TileBackground2}"
-            CornerRadius="10"/>
+                        Grid.Row="1"
+                        Color="{StaticResource TileBackground2}"
+                        CornerRadius="10"/>
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="0"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center" />
                     <BoxView
-            Grid.Row="1"
-            Grid.Column="1"
-            Color="{StaticResource TileBackground1}"
-            CornerRadius="10"/>
-                    <BoxView
-            Grid.Row="1"
-            Grid.Column="2"
-            Color="{StaticResource TileBackground2}"
-            CornerRadius="10"/>
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Color="{StaticResource TileBackground2}"
+                        CornerRadius="10"/>
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Text="0"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center" />
                 </Grid>
             </Border>
+            <!-- Tablero -->
             <Border
                 BackgroundColor="{StaticResource PanelBackground}"
                 Stroke="Gray"
@@ -104,7 +120,6 @@
                     <RoundRectangle CornerRadius="12"/>
                 </Border.StrokeShape>
 
-                <!-- tablero -->
                 <Grid
                         RowSpacing="6"
                         ColumnSpacing="6"
@@ -121,47 +136,110 @@
                         <ColumnDefinition Width="100"/>
                     </Grid.ColumnDefinitions>
                     <!-- Row 0 -->
-                    <BoxView
-                        Color="{StaticResource TileBackground1}"
-                        CornerRadius="10"/>
+                    <BoxView 
+                        Color="{StaticResource TileBackground1}" 
+                        CornerRadius="10" />
+                    <ImageButton 
+                        Grid.Row="0" Grid.Column="0"
+                        Padding="15"
+                        BackgroundColor="Transparent"
+                        Aspect="AspectFit"
+                        CommandParameter="0,0"
+                        Clicked="OnBoxClicked" />
                     <BoxView
                         Grid.Column="1"
                         Color="{StaticResource TileBackground2}"
                         CornerRadius="10"/>
+                    <ImageButton 
+                        Grid.Row="0" Grid.Column="1"
+                        Padding="15"
+                        BackgroundColor="Transparent"
+                        Aspect="AspectFit"
+                        CommandParameter="0,1"
+                        Clicked="OnBoxClicked" />
                     <BoxView
                         Grid.Column="2"
                         Color="{StaticResource TileBackground1}"
                         CornerRadius="10"/>
+                    <ImageButton 
+                        Grid.Row="0" Grid.Column="2"
+                        Padding="15"
+                        BackgroundColor="Transparent"
+                        Aspect="AspectFit"
+                        CommandParameter="0,2"
+                        Clicked="OnBoxClicked" />
                     <!-- Row 1 -->
                     <BoxView
                         Grid.Row="1"
                         Color="{StaticResource TileBackground2}"
                         CornerRadius="10"/>
+                    <ImageButton 
+                        Grid.Row="1" Grid.Column="0"
+                        Padding="15"
+                        BackgroundColor="Transparent"
+                        Aspect="AspectFit"
+                        CommandParameter="1,0"
+                        Clicked="OnBoxClicked" />
                     <BoxView
                         Grid.Row="1"
                         Grid.Column="1"
                         Color="{StaticResource TileBackground1}"
                         CornerRadius="10"/>
+                    <ImageButton 
+                        Grid.Row="1" Grid.Column="1"
+                        Padding="15"
+                        BackgroundColor="Transparent"
+                        Aspect="AspectFit"
+                        CommandParameter="1,1"
+                        Clicked="OnBoxClicked" />
                     <BoxView
                         Grid.Row="1"
                         Grid.Column="2"
                         Color="{StaticResource TileBackground2}"
                         CornerRadius="10"/>
+                    <ImageButton 
+                        Grid.Row="1" Grid.Column="2"
+                        Padding="15"
+                        BackgroundColor="Transparent"
+                        Aspect="AspectFit"
+                        CommandParameter="1,2"
+                        Clicked="OnBoxClicked" />
                     <!-- Row 2 -->
                     <BoxView
                         Grid.Row="2"
                         Color="{StaticResource TileBackground1}"
                         CornerRadius="10"/>
+                    <ImageButton 
+                        Grid.Row="2" Grid.Column="0"
+                        Padding="15"
+                        BackgroundColor="Transparent"
+                        Aspect="AspectFit"
+                        CommandParameter="2,0"
+                        Clicked="OnBoxClicked" />
                     <BoxView
                         Grid.Row="2"
                         Grid.Column="1"
                         Color="{StaticResource TileBackground2}"
                         CornerRadius="10"/>
+                    <ImageButton 
+                        Grid.Row="2" Grid.Column="1"
+                        Padding="15"
+                        BackgroundColor="Transparent"
+                        Aspect="AspectFit"
+                        CommandParameter="2,1"
+                        Clicked="OnBoxClicked" />
                     <BoxView
                         Grid.Row="2"
                         Grid.Column="2"
                         Color="{StaticResource TileBackground1}"
                         CornerRadius="10"/>
+                    <ImageButton 
+                        Grid.Row="2" Grid.Column="2"
+                        Padding="15"
+                        BackgroundColor="Transparent"
+                        Aspect="AspectFit"
+                        CommandParameter="2,2"
+                        Clicked="OnBoxClicked" />
                 </Grid>
             </Border>
         </VerticalStackLayout>

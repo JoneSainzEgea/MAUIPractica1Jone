@@ -2,24 +2,28 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        bool isSunsTurn = true;
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        //private void OnCounterClicked(object sender, EventArgs e)
-        //{
-        //    count++;
+        private void OnBoxClicked(object sender, EventArgs e)
+        {
+            ImageButton button = sender as ImageButton;
 
-        //    if (count == 1)
-        //        CounterBtn.Text = $"Clicked {count} time";
-        //    else
-        //        CounterBtn.Text = $"Clicked {count} times";
+            if(button.Source == null) // Verificar que el botón no tenga imagen
+            {
+                if (isSunsTurn)
+                    button.Source = "sunshine.png";
+                else
+                    button.Source = "planet.png";
+            }
 
-        //    SemanticScreenReader.Announce(CounterBtn.Text);
-        //}
+            isSunsTurn = !isSunsTurn;
+        }
+
     }
 
 }
