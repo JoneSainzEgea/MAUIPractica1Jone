@@ -69,6 +69,7 @@
                         Aspect="AspectFit"
                         SemanticProperties.Description="Sun" />
                     <Image
+                        x:Name="ImgArrow"
                         Grid.Column="1"
                         Source="left_arrow.png"
                         HeightRequest="50"
@@ -86,6 +87,7 @@
                         Color="{StaticResource TileBackground2}"
                         CornerRadius="10"/>
                     <Label
+                        x:Name="SunPointsLabel"
                         Grid.Row="1"
                         Grid.Column="0"
                         Text="0"
@@ -97,6 +99,7 @@
                         Color="{StaticResource TileBackground2}"
                         CornerRadius="10"/>
                     <Label
+                        x:Name="MoonPointsLabel"
                         Grid.Row="1"
                         Grid.Column="2"
                         Text="0"
@@ -121,10 +124,11 @@
                 </Border.StrokeShape>
 
                 <Grid
-                        RowSpacing="6"
-                        ColumnSpacing="6"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center">
+                    x:Name="BoardGrid"
+                    RowSpacing="6"
+                    ColumnSpacing="6"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="100" />
                         <RowDefinition Height="100" />
@@ -245,3 +249,5 @@
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
+    
+    
