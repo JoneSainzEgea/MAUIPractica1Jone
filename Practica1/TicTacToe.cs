@@ -1,6 +1,7 @@
 namespace TicTacToe;
 /// <summary>
-/// Funcionalidad del juego
+/// Clase encargada de gestionar la lógica de juego de una partida de Tres en Raya
+/// Controla el estado del tablero, los turnos y la validación de ganadores
 /// </summary>
 public class TicTacToe
 {
@@ -14,11 +15,12 @@ public class TicTacToe
     {
         Reiniciar();
     }
+
     /// <summary>
     /// Realiza jugadas
     /// </summary>
-    /// <param name="c">Columna de la jugada</param>
     /// <param name="f">Fila de la jugada</param>
+    /// <param name="c">Columna de la jugada</param>
     /// <returns>Número de turno o -1 si la jugada es invalida</returns>
     public int jugada(int f, int c)
     {
@@ -30,8 +32,9 @@ public class TicTacToe
         }
         return -1;
     }
+
     /// <summary>
-    /// Determina que jugador ha ganado si es que algún jugador ha ganado
+    /// Evalúa el tablero actual para identificar si existe un ganador
     /// </summary>
     /// <returns>Devuelve el jugador ganador 1 o 2 y 0 si no hay ganador</returns>
     public int Ganador()
@@ -41,6 +44,10 @@ public class TicTacToe
         return 0;
     }
 
+    /// <summary>
+    /// Verifica si se han completado los 9 turnos sin que exista un ganador.
+    /// </summary>
+    /// /// <returns>Devuelve Verdadero si el tablero está lleno y no hay un ganador</returns>
     public bool EsEmpate() => turno == 9 && Ganador() == 0;
 
     /// <summary>
@@ -74,7 +81,7 @@ public class TicTacToe
         };
     }
     /// <summary>
-    /// 
+    /// Propiedad para constultar el número de movimientos realizados
     /// </summary>
     public int TurnoActual => turno;
 
